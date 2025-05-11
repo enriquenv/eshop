@@ -3,14 +3,14 @@ import classes from './NavBar.module.scss';
 
 export default function NavBar() {
   return (
-    <nav>
-      <div>
-        <NavLink to="/">
+    <nav className={classes.nav}>
+      <div className={classes.nav_group}>
+        <NavLink className={classes.nav_link} to="/">
           Home
         </NavLink>
       </div>
-      <div>
-        <NavLink to="/cart">
+      <div className={classes.nav_group}>
+        <NavLink className={classes.nav_link} to="/cart">
           Cart
         </NavLink>
       </div>

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 import NavBar from './components/NavBar/NavBar';
 import HomePage from './pages/HomePage/HomePage';
+import ProductsProvider from './context/ProductsProvider';
 import ProductPage from './pages/ProductPage/ProductPage';
 import ProductsPage from './pages/ProductsPage/ProductsPage';
 import CartPage from './pages/CartPage/CartPage';
@@ -9,6 +10,7 @@ import CartPage from './pages/CartPage/CartPage';
 export default function App() {
   return (
     <>
+      <ProductsProvider>
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -18,6 +20,7 @@ export default function App() {
           <Route path="/cart" element={<CartPage />} />
         </Routes>
       </BrowserRouter>
+    </ProductsProvider>
     </>
   );
 }

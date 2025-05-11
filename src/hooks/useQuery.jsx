@@ -1,15 +1,32 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function useQuery({ fetchFn, args = [], dependencies = [] }) {
-  useEffect(() => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [fetchStatus, setFetchStatus] = useState('PENDING');
+
+  const fetchData = (firstFetch) => {
+    firstFetch && setFetchStatus('LOADING');
     fetchFn(...args)
       .then((result) => {
-        console.log("Fetched data:", result);
+        setFetchStatus('SUCCESS');
+        setData(result);
       })
       .catch((err) => {
-        console.error("Fetch error:", err);
+        setFetchStatus('FAILURE');
+        setError(err);
       });
+  };
+  useEffect(() => {
+    fetchData(true);
   }, dependencies);
 
-  return null;
+  return {
+    reset: fetchData,
+    data,
+    error,
+    isSuccess: fetchStatus === 'SUCCESS',
+    isFail: fetchStatus === 'FAILURE',
+    isLoading: fetchStatus === 'LOADING',
+  };
 }
