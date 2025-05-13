@@ -19,10 +19,19 @@ export default function CartPage() {
         <>
           <ul>
             {cart.map(item => (
-              <div key={item.id + item.variant}>
-                <Button onClick={() => decrement(item.id, item.variant)}>-</Button>
-                <Button onClick={() => increment(item.id, item.variant)}>+</Button>
-                <p className={classes.p}><strong>{item.name}</strong> ({item.variant}) - ${item.price} x {item.quantity}</p>
+              <div key={item.id + (item.variant || '')}>
+                <Button
+                  onClick={() => decrement(item.id, item.variant)}
+                  disabled={item.quantity === 1}
+                >-</Button>
+                <Button
+                  onClick={() => increment(item.id, item.variant)}
+                  disabled={item.quantity >= item.available}
+                >+</Button>
+                <p className={classes.p}>
+                  <strong>{item.name}</strong>
+                  {item.variant ? ` (${item.variant})` : ''} - ${item.price} x {item.quantity}
+                </p>
                 <Button onClick={() => removeFromCart(item.id, item.variant)}>Remove</Button>
               </div>
             ))}
