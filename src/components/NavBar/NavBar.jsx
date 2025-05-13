@@ -6,12 +6,12 @@ export default function NavBar() {
     <nav className={classes.nav}>
       <div className={classes.nav_group}>
         <NavLink className={classes.nav_link} to="/">
-          Home
+          🏠 Home
         </NavLink>
       </div>
       <div className={classes.nav_group}>
         <NavLink className={classes.nav_link} to="/cart">
-          Cart
+          Cart 🛒
         </NavLink>
       </div>
     </nav>
