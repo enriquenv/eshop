@@ -16,7 +16,7 @@ export default function ProductCard({ product }) {
         <h3>{product.name}</h3>
         <h5>Price: ${product.price}</h5>
         <Button onClick={() => addToCart(product, variant)}>Add to Cart</Button>
-        <Link to={`/products/${product.id}`}>See More</Link>
+        <Link to={`/products/${product.id}`}><Button>See More</Button></Link>
       </div>
     </article>
   );

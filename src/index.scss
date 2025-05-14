@@ -209,3 +209,13 @@ Add the correct display in Chrome and Safari.
 summary {
   display: list-item;
 }
+
+body {
+  max-width: 2125px;
+  margin: auto;
+}
+
+.slick-slider {
+  width: 90%;
+  margin: 0 0 3em;;
+}

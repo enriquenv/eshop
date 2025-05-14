@@ -9,6 +9,7 @@ export default function NavBar() {
           🏠 Home
         </NavLink>
       </div>
+      <div><h1><NavLink className={`${classes.nav_title} ${classes.logoFont}`} to="/">StoryMaps Co.</NavLink></h1></div>
       <div className={classes.nav_group}>
         <NavLink className={classes.nav_link} to="/cart">
           Cart 🛒

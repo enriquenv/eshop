@@ -21,10 +21,12 @@ export default function CartPage() {
             {cart.map(item => (
               <div key={item.id + (item.variant || '')}>
                 <Button
+                  style={{ transform: 'scale(0.7)', padding: '0.6em 1em' }}
                   onClick={() => decrement(item.id, item.variant)}
                   disabled={item.quantity === 1}
                 >-</Button>
                 <Button
+                  style={{ transform: 'scale(0.7)', padding: '0.6em 1em' }}
                   onClick={() => increment(item.id, item.variant)}
                   disabled={item.quantity >= item.available}
                 >+</Button>
@@ -32,12 +34,12 @@ export default function CartPage() {
                   <strong>{item.name}</strong>
                   {item.variant ? ` (${item.variant})` : ''} - ${item.price} x {item.quantity}
                 </p>
-                <Button onClick={() => removeFromCart(item.id, item.variant)}>Remove</Button>
+                <Button style={{ transform: 'scale(0.8)', padding: '0.6em 1em' }} onClick={() => removeFromCart(item.id, item.variant)}>Remove</Button>
               </div>
             ))}
           </ul>
           <h2>Total: ${total.toFixed(2)}</h2>
-          <Button onClick={clearCart}>Pay Now</Button>
+          <Button style={{ transform: 'scale(1.2)' }} onClick={clearCart}>Pay Now</Button>
         </>
       )}
     </main>

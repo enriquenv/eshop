@@ -4,6 +4,7 @@ import { ProductsContext } from '../../context/ProductsProvider';
 import useQuery from '../../hooks/useQuery';
 import { getProductById } from '../../services/product-services';
 import ProductDetails from './ProductDetails';
+import classes from './ProductPage.module.scss';
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -18,8 +19,8 @@ export default function ProductPage() {
 
   return (
     <main>
-      {isLoading && <p>Loading...</p>}
-      {isFail && <p>{error.message}</p>}
+      {isLoading && <p className={classes.centered}>Loading...</p>}
+      {isFail && <p className={classes.centered}>{error.message}</p>}
       {isSuccess && <ProductDetails productData={product} resetFetch={reset} />}
     </main>
   );

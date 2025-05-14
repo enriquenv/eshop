@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 import NavBar from './components/NavBar/NavBar';
 import HomePage from './pages/HomePage/HomePage';
+import Footer from './components/Footer/Footer';
 import { CartProvider } from './context/CartContext';
 import ProductsProvider from './context/ProductsProvider';
 import ProductPage from './pages/ProductPage/ProductPage';
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/category/:baseName" element={<ProductsPage />} />
           <Route path="/cart" element={<CartPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </ProductsProvider>
     </CartProvider>
